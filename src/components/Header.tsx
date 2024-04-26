@@ -1,5 +1,7 @@
 import clsx from "clsx";
 
+import { Button } from "./ui";
+
 const headerlLinkStyle = clsx(
   "relative",
   "before:absolute before:bottom-[-4px] before:left-0 before:z-1 before:w-0 before:h-5 before:border-b-[#FF4900] before:border-b-2",
@@ -12,9 +14,9 @@ export function Header() {
   return (
     <header className="flex items-center justify-between py-3 px-[2%] border-b-2 border-black">
       <div className="flex items-center gap-2">
-        <span className="inline-block h-4 w-4 rounded-full bg-[#FF4900]" />
+        <span className="inline-block h-4 w-4 rounded-full bg-primary" />
         <h1 className="text-2xl font-bold">
-          Plansve<span className="text-[#FF4900]">l</span>
+          Plansve<span className="text-primary">l</span>
         </h1>
       </div>
       <div className="flex gap-10">
@@ -31,7 +33,7 @@ export function Header() {
           Serviços
         </a>
       </div>
-      <button type="button">Login</button>
+      <Button size="sm">Login</Button>
     </header>
   );
 }
