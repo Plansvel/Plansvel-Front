@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { BiSolidDoorOpen } from "react-icons/bi";
 
 import { Button } from "./ui";
 
@@ -33,7 +34,9 @@ export function Header() {
           Serviços
         </a>
       </div>
-      <Button size="sm">Login</Button>
+      <Button size="sm" rightIcon={BiSolidDoorOpen}>
+        Login
+      </Button>
     </header>
   );
 }

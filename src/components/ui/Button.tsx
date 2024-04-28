@@ -1,15 +1,16 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-props-no-spreading */
 
 import { cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn, isNil } from "@/lib/utils";
 
+import { Icon } from "./Icon";
 import { Spinner } from "./Spinner";
 
 import type { VariantProps } from "class-variance-authority";
+import type { IconType } from "react-icons";
 
 const buttonVariants = cva(
   "inline-flex relative items-center justify-center whitespace-nowrap overflow-hidden text-sm rounded-md transition-colors disabled:pointer-events-none disabled:opacity-50",
@@ -18,6 +19,7 @@ const buttonVariants = cva(
       variant: {
         default: "text-white bg-primary hover:bg-gray14",
         secondary: "text-white bg-gray14",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -35,6 +37,8 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   loading?: boolean;
   circular?: boolean;
+  leftIcon?: IconType;
+  rightIcon?: IconType;
 }
 
 const loadingContainer = (
@@ -45,18 +49,41 @@ const loadingContainer = (
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, size, loading, circular, children, ...props },
+    {
+      className,
+      variant,
+      size,
+      loading,
+      circular,
+      leftIcon,
+      rightIcon,
+      ...props
+    },
     ref,
-  ) => (
-    <button
-      ref={ref}
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    >
-      {loading && loadingContainer}
-      {children}
-    </button>
-  ),
+  ) => {
+    const hasChildren = !isNil(props.children);
+
+    const computeContent = () => {
+      const { children, content } = props;
+
+      const baseContent = hasChildren ? children : content;
+
+      return baseContent;
+    };
+
+    return (
+      <button
+        ref={ref}
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...props}
+      >
+        {loading && loadingContainer}
+        {leftIcon && <Icon icon={leftIcon} />}
+        {computeContent()}
+        {rightIcon && <Icon icon={rightIcon} />}
+      </button>
+    );
+  },
 );
 
 Button.displayName = "Button";
