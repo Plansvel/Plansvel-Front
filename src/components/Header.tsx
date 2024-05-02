@@ -13,7 +13,7 @@ const headerlLinkStyle = clsx(
 
 export function Header() {
   return (
-    <header className="flex items-center justify-between py-3 px-[2%] border-b-2 border-black">
+    <header className="flex items-center justify-between py-3 px-[2%]">
       <div className="flex items-center gap-2">
         <span className="inline-block h-4 w-4 rounded-full bg-primary" />
         <h1 className="text-2xl font-bold">
