@@ -11,10 +11,9 @@ const sizes = {
 };
 
 const colors = {
-  pink: "text-salmon-pink",
+  primary: "text-primary",
   onyx: "text-onyx",
   dark: "text-onyx-eerie-black",
-  silver: "text-sonic-silver",
   white: "text-white",
 };
 

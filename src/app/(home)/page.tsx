@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { Odor_Mean_Chey } from "next/font/google";
 import Image from "next/image";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import { IoSearchCircle } from "react-icons/io5";
 
-import { Button, Input } from "@/components";
+import { Button, DestinataryCard, Input } from "@/components";
 
 const odor = Odor_Mean_Chey({ weight: ["400"], subsets: ["latin"] });
 
@@ -38,16 +39,38 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="flex items-center gap-2 bg-primary rounded-sm p-1 my-5 w-11/12">
-        <Input />
-        <Input />
-        <Input />
-        <Button
-          leftIcon={IoSearchCircle}
-          variant="secondary"
-          content="Pesquisar"
-        />
-      </div>
+      <section className="w-full px-14">
+        <div className="flex items-center gap-2 bg-primary rounded-sm p-1 my-5">
+          <Input />
+          <Input />
+          <Input />
+          <Button
+            leftIcon={IoSearchCircle}
+            variant="secondary"
+            content="Pesquisar"
+            className="flex-shrink-0"
+          />
+        </div>
+
+        <div>
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold">
+              <span className="text-primary">Destinos</span> <br /> Populares
+            </h2>
+            <div className="flex items-center gap-1">
+              <Button size="icon" leftIcon={FaArrowLeft} circular />
+              <Button size="icon" leftIcon={FaArrowRight} circular />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 grid-rows-1 gap-4 mt-5 mb-5">
+            <DestinataryCard />
+            <DestinataryCard />
+            <DestinataryCard />
+            <DestinataryCard />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

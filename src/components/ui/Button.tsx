@@ -18,7 +18,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "text-white bg-primary hover:bg-gray14",
-        secondary: "text-white bg-gray14",
+        secondary: "text-white bg-gray14 hover:bg-gray14/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
       },
       size: {
@@ -74,7 +74,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          circular ? "rounded-full" : "",
+        )}
         {...props}
       >
         {loading && loadingContainer}
