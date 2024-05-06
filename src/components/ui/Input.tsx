@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
+"use client";
+
 import { forwardRef } from "react";
 
 import { cn } from "@/lib/utils";
@@ -17,7 +19,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, icon, iconPosition, ...props }, ref) => {
     const inputClasses = cn(
       "w-full text-sm py-2 px-3 outline-0 disabled:cursor-not-allowed disabled:opacity-50",
-      icon ? `p${iconPosition === "left" ? "l" : "r"}-9` : "",
+      icon && iconPosition === "left" && "pl-9",
+      icon && iconPosition === "right" && "pr-9",
     );
 
     return (

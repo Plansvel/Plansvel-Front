@@ -46,7 +46,7 @@ export default function Home() {
             iconPosition="left"
             placeholder="Para onde você vai?"
           />
-          <DatePicker showIcon icon={<IoCalendar />} />
+          <DatePicker icon={IoCalendar} />
           <Input
             icon={IoPerson}
             iconPosition="left"

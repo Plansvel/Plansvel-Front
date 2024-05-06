@@ -23,8 +23,8 @@ export function DestinataryCard({
   title,
 }: DestinataryCardProps) {
   return (
-    <div className="flex flex-col items-center antialiased">
-      <div className="relative h-96 w-80 overflow-hidden rounded-md z-0">
+    <div className="flex flex-col items-center w-full max-w-sm antialiased">
+      <div className="relative h-96 w-full overflow-hidden rounded-md z-0">
         <Image src="/greek-city.jpg" alt="" objectFit="cover" layout="fill" />
       </div>
       <div className="bg-white -mt-16 px-3 pt-5 pb-8 w-5/6 rounded-lg shadow-2xl z-10">

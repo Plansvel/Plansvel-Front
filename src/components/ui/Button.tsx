@@ -19,7 +19,7 @@ const buttonVariants = cva(
       variant: {
         default: "text-white bg-primary hover:bg-gray14",
         secondary: "text-white bg-gray14 hover:bg-gray14/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "text-gray-14 bg-transparent hover:bg-slate-200",
       },
       size: {
         default: "h-10 px-4 py-2",
