@@ -2,9 +2,9 @@ import clsx from "clsx";
 import { Odor_Mean_Chey } from "next/font/google";
 import Image from "next/image";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
-import { IoSearchCircle } from "react-icons/io5";
+import { IoSearchCircle, IoBed, IoPerson, IoCalendar } from "react-icons/io5";
 
-import { Button, DestinataryCard, Input } from "@/components";
+import { Button, DatePicker, DestinataryCard, Input } from "@/components";
 
 const odor = Odor_Mean_Chey({ weight: ["400"], subsets: ["latin"] });
 
@@ -40,10 +40,20 @@ export default function Home() {
       </section>
 
       <section className="w-full px-14">
-        <div className="flex items-center gap-2 bg-primary rounded-sm p-1 my-5">
-          <Input />
-          <Input />
-          <Input />
+        <div className="flex items-center gap-2 bg-primary rounded-sm p-1 mt-10 mb-5">
+          <Input
+            icon={IoBed}
+            iconPosition="left"
+            placeholder="Para onde você vai?"
+          />
+          <DatePicker showIcon icon={<IoCalendar />} />
+          <Input
+            icon={IoPerson}
+            iconPosition="left"
+            placeholder="Quantidade de pessoas"
+            type="number"
+            min={1}
+          />
           <Button
             leftIcon={IoSearchCircle}
             variant="secondary"
@@ -52,7 +62,7 @@ export default function Home() {
           />
         </div>
 
-        <div>
+        <div className="my-10">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold">
               <span className="text-primary">Destinos</span> <br /> Populares
@@ -63,7 +73,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-4 grid-rows-1 gap-4 mt-5 mb-5">
+          <div className="grid grid-cols-4 grid-rows-1 gap-4 mt-5">
             <DestinataryCard />
             <DestinataryCard />
             <DestinataryCard />
