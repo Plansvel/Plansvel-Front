@@ -7,7 +7,7 @@ import { HiLocationMarker } from "react-icons/hi";
 
 import { Button, Icon } from "./ui";
 
-export type DestinataryCardProps = {
+export type DestinationCardProps = {
   image?: string;
   location?: string;
   price?: number;
@@ -15,13 +15,13 @@ export type DestinataryCardProps = {
   title?: string;
 };
 
-export function DestinataryCard({
+export function DestinationCard({
   image,
   location,
   price,
   rating,
   title,
-}: DestinataryCardProps) {
+}: DestinationCardProps) {
   return (
     <div className="flex flex-col items-center w-full max-w-sm antialiased">
       <div className="relative h-96 w-full overflow-hidden rounded-md z-0">

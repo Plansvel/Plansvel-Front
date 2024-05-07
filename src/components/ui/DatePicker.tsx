@@ -81,11 +81,12 @@ export function DatePicker({ icon, iconPosition }: DatePickerProps) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-full origin-top-left rounded-sm p-4 z-50 border border-red-600 bg-white">
+        <Menu.Items className="absolute right-0 mt-2 w-full origin-top-left rounded-sm p-4 z-50 border border-input bg-white">
           <div className="flex items-center">
             <Button
               leftIcon={FaChevronLeft}
               variant="ghost"
+              className="h-9 w-9"
               circular
               onClick={() => previousMonth()}
             />
@@ -95,11 +96,12 @@ export function DatePicker({ icon, iconPosition }: DatePickerProps) {
             <Button
               leftIcon={FaChevronRight}
               variant="ghost"
+              className="h-9 w-9"
               circular
               onClick={() => nextMonth()}
             />
           </div>
-          <div className="grid grid-cols-7 text-xs mt-2 leading-6 text-center text-gray-500">
+          <div className="grid grid-cols-7 text-xs mt-4 leading-6 text-center text-gray-500">
             <div>Seg.</div>
             <div>Ter.</div>
             <div>Qua.</div>
