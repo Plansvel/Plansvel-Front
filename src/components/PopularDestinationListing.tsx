@@ -19,12 +19,12 @@ export function PopularDestinationListing() {
   const [swiper, setSwiper] = useState<null | SwiperType>(null);
 
   return (
-    <section className="my-10">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold">
+    <section className="container my-10 md:px-0">
+      <div className="flex items-center flex-col justify-center md:justify-between md:flex-row">
+        <h2 className="text-2xl text-center font-bold md:text-xl md:text-left">
           <span className="text-primary">Destinos</span> <br /> Populares
         </h2>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center justify-between gap-1 w-full md:w-auto md:justify-normal">
           <Button
             size="icon"
             leftIcon={FaArrowLeft}
@@ -49,9 +49,14 @@ export function PopularDestinationListing() {
       <Swiper
         className="mt-5"
         modules={[Pagination]}
-        slidesPerView={4}
+        slidesPerView={1}
         spaceBetween={20}
         onSwiper={(swp) => setSwiper(swp)}
+        breakpoints={{
+          768: {
+            slidesPerView: 4,
+          },
+        }}
       >
         <SwiperSlide>
           <DestinationCard />

@@ -1,5 +1,9 @@
+"use client";
+
 import clsx from "clsx";
 import { BiSolidDoorOpen } from "react-icons/bi";
+
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 import { Button } from "./ui";
 
@@ -12,15 +16,17 @@ const headerlLinkStyle = clsx(
 );
 
 export function Header() {
+  const [isMd] = useMediaQuery(["(min-width: 768px)"], { ssr: false });
+
   return (
-    <header className="flex items-center justify-between py-3 px-[2%]">
+    <header className="container max-w-screen-2xl flex items-center justify-center py-3 md:justify-between">
       <div className="flex items-center gap-2">
         <span className="inline-block h-4 w-4 rounded-full bg-primary" />
         <h1 className="text-2xl font-bold">
           Plansve<span className="text-primary">l</span>
         </h1>
       </div>
-      <div className="flex gap-10">
+      <nav className="hidden gap-10 md:flex">
         <a href="https://github.com/" className={headerlLinkStyle}>
           Home
         </a>
@@ -33,10 +39,16 @@ export function Header() {
         <a href="https://github.com/" className={headerlLinkStyle}>
           Serviços
         </a>
-      </div>
-      <Button size="sm" rightIcon={BiSolidDoorOpen}>
-        Login
-      </Button>
+      </nav>
+      {isMd && (
+        <Button
+          className="hidden md:flex"
+          size="sm"
+          rightIcon={BiSolidDoorOpen}
+        >
+          Login
+        </Button>
+      )}
     </header>
   );
 }
