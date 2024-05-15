@@ -19,7 +19,7 @@ export function PopularDestinationListing() {
   const [swiper, setSwiper] = useState<null | SwiperType>(null);
 
   return (
-    <section className="container my-10 md:px-0">
+    <section className="container my-10">
       <div className="flex items-center flex-col justify-center md:justify-between md:flex-row">
         <h2 className="text-2xl text-center font-bold md:text-xl md:text-left">
           <span className="text-primary">Destinos</span> <br /> Populares
@@ -54,6 +54,9 @@ export function PopularDestinationListing() {
         onSwiper={(swp) => setSwiper(swp)}
         breakpoints={{
           768: {
+            slidesPerView: 3,
+          },
+          1024: {
             slidesPerView: 4,
           },
         }}
