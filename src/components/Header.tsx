@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import { BiSolidDoorOpen } from "react-icons/bi";
 
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -10,7 +11,7 @@ import { Button } from "./ui";
 const headerlLinkStyle = clsx(
   "relative",
   "before:absolute before:bottom-[-4px] before:left-0 before:z-1 before:w-0 before:h-5 before:border-b-[#FF4900] before:border-b-2",
-  "before:transition-all",
+  "before:transition-all before:duration-500 before:ease-in-out",
   "hover:before:w-full",
   "hover:text-[#FF4900]",
 );
@@ -26,7 +27,12 @@ export function Header() {
           Plansve<span className="text-primary">l</span>
         </h1>
       </div>
-      <nav className="hidden gap-10 md:flex">
+      <motion.nav
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="hidden gap-10 md:flex"
+      >
         <a href="https://github.com/" className={headerlLinkStyle}>
           Home
         </a>
@@ -39,16 +45,22 @@ export function Header() {
         <a href="https://github.com/" className={headerlLinkStyle}>
           Serviços
         </a>
-      </nav>
-      {isMd && (
-        <Button
-          className="hidden md:flex"
-          size="sm"
-          rightIcon={BiSolidDoorOpen}
-        >
-          Login
-        </Button>
-      )}
+      </motion.nav>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+      >
+        {isMd && (
+          <Button
+            className="hidden md:flex"
+            size="sm"
+            rightIcon={BiSolidDoorOpen}
+          >
+            Login
+          </Button>
+        )}
+      </motion.div>
     </header>
   );
 }

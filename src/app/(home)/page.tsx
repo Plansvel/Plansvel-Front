@@ -33,7 +33,7 @@ export default function Home() {
           <h1
             className={clsx(
               odor.className,
-              "text-5xl font-bold leading-tight mb-4",
+              "text-4xl font-medium leading-tight tracking-wide mb-4 md:text-6xl",
             )}
           >
             Plansvel
@@ -41,7 +41,7 @@ export default function Home() {
           <p className="text-sm text-gray-300 mb-8 md:text-lg">
             Discover amazing features and services that await you.
           </p>
-          <Button content="Sobre Nós" />
+          <Button content="Sobre Nós" size="lg" />
         </div>
       </section>
 
