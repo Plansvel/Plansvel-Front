@@ -52,6 +52,7 @@ export function PopularDestinationListing() {
         slidesPerView={1}
         spaceBetween={20}
         onSwiper={(swp) => setSwiper(swp)}
+        autoplay={{ delay: 50 }}
         breakpoints={{
           768: {
             slidesPerView: 3,
@@ -61,30 +62,11 @@ export function PopularDestinationListing() {
           },
         }}
       >
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <DestinationCard />
-        </SwiperSlide>
+        {[...Array(8)].map(() => (
+          <SwiperSlide>
+            <DestinationCard />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );

@@ -1,7 +1,5 @@
 "use client";
 
-import clsx from "clsx";
-import { Odor_Mean_Chey } from "next/font/google";
 import Image from "next/image";
 import { IoSearchCircle, IoBed, IoPerson, IoCalendar } from "react-icons/io5";
 
@@ -10,40 +8,13 @@ import {
   DatePicker,
   PopularDestinationListing,
   Input,
+  Hero,
 } from "@/components";
-
-const odor = Odor_Mean_Chey({ weight: ["400"], subsets: ["latin"] });
 
 export default function Home() {
   return (
     <>
-      <section className="relative w-full h-[369px] text-white overflow-hidden md:h-screen">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero-section1.jpeg"
-            alt="Background Image"
-            objectFit="cover"
-            layout="fill"
-            priority
-          />
-          <div className="absolute inset-0 bg-black opacity-50" />
-        </div>
-
-        <div className="container relative z-10 flex flex-col justify-center items-center h-full text-center">
-          <h1
-            className={clsx(
-              odor.className,
-              "text-4xl font-medium leading-tight tracking-wide mb-4 md:text-6xl",
-            )}
-          >
-            Plansvel
-          </h1>
-          <p className="text-sm text-gray-300 mb-8 md:text-lg">
-            Discover amazing features and services that await you.
-          </p>
-          <Button content="Sobre Nós" size="lg" />
-        </div>
-      </section>
+      <Hero />
 
       <section className="w-full mb-5 md:container md:mt-10">
         <div className="flex flex-col items-center gap-4 bg-primary rounded-sm pb-4 pt-5 px-10 md:gap-2 md:p-1 md:flex-row">
@@ -51,6 +22,7 @@ export default function Home() {
             icon={IoBed}
             iconPosition="left"
             placeholder="Para onde você vai?"
+            className="w-full"
           />
           <DatePicker icon={IoCalendar} iconPosition="left" />
           <Input
@@ -59,6 +31,7 @@ export default function Home() {
             placeholder="Quantidade de pessoas"
             type="number"
             min={1}
+            className="w-full"
           />
           <Button
             leftIcon={IoSearchCircle}

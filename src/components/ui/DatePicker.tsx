@@ -71,6 +71,7 @@ export function DatePicker({ icon, iconPosition }: DatePickerProps) {
         value={format(selectedDay, "EEEE, d/M", { locale: ptBR })}
         icon={icon}
         iconPosition={iconPosition}
+        className="w-full"
       />
       <Transition
         as={Fragment}

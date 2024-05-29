@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 
 import { Footer, Header } from "@/components";
+import { cn } from "@/lib/utils";
 import AppProvider from "@/providers/AppProvider";
 
 import type { Metadata } from "next";
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={cn(poppins.className, "bg-background")}>
         <AppProvider>
           <Header />
           <main className="flex min-h-screen flex-col items-center justify-between">

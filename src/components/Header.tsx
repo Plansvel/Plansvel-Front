@@ -20,13 +20,18 @@ export function Header() {
   const [isMd] = useMediaQuery(["(min-width: 768px)"], { ssr: false });
 
   return (
-    <header className="container max-w-screen-2xl flex items-center justify-center py-3 md:justify-between">
-      <div className="flex items-center gap-2">
+    <header className="container max-w-screen-2xl flex items-center gap-20 py-3 justify-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+        className="flex items-center gap-2"
+      >
         <span className="inline-block h-4 w-4 rounded-full bg-primary" />
         <h1 className="text-2xl font-bold">
           Plansve<span className="text-primary">l</span>
         </h1>
-      </div>
+      </motion.div>
       <motion.nav
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -46,12 +51,12 @@ export function Header() {
           Serviços
         </a>
       </motion.nav>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-      >
-        {isMd && (
+      {isMd && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7 }}
+        >
           <Button
             className="hidden md:flex"
             size="sm"
@@ -59,8 +64,8 @@ export function Header() {
           >
             Login
           </Button>
-        )}
-      </motion.div>
+        </motion.div>
+      )}
     </header>
   );
 }
